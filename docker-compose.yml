@@ -39,17 +39,32 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
-  # Frontend - Streamlit チャットUI
-  frontend:
+  # UI - Next.js + CopilotKit (AG-UI)
+  ui:
     build:
-      context: ./frontend
+      context: ./ui
       dockerfile: Dockerfile
-    container_name: agentcore-frontend
+    container_name: agentcore-ui
     ports:
       - "3000:3000"
+    environment:
+      - AGENT_URL=http://agent:8000/invocations
     depends_on:
       - agent
     restart: unless-stopped
+
+  # Frontend - Streamlit チャットUI (レガシー - 無効化)
+  # 従来のStreamlitフロントエンドを使用したい場合はコメントを外してください
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: agentcore-frontend
+  #   ports:
+  #     - "3001:3000"
+  #   depends_on:
+  #     - agent
+  #   restart: unless-stopped
 
 volumes:
   ollama_data:
