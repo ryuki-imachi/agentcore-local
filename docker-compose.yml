@@ -53,18 +53,5 @@ services:
       - agent
     restart: unless-stopped
 
-  # Frontend - Streamlit チャットUI (レガシー - 無効化)
-  # 従来のStreamlitフロントエンドを使用したい場合はコメントを外してください
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   container_name: agentcore-frontend
-  #   ports:
-  #     - "3001:3000"
-  #   depends_on:
-  #     - agent
-  #   restart: unless-stopped
-
 volumes:
   ollama_data:
