@@ -43,7 +43,7 @@ export default function Home() {
                   <strong>Agent:</strong> Strands Agents SDK
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
-                  <strong>LLM:</strong> Ollama (qwen3:8b)
+                  <strong>LLM:</strong> Ollama (qwen3:0.6b)
                 </li>
                 <li style={{ marginBottom: '0.5rem' }}>
                   <strong>Frontend:</strong> Next.js + CopilotKit
